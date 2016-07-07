@@ -5,13 +5,40 @@ namespace pythagor\yiiphpab;
 use CWidget;
 use CBaseController;
 
+/**
+ * Class PhpabVariation
+ * Represents A/B Test variation
+ * @package pythagor\yiiphpab
+ * @author  Andrei Chugunov <admin@pythagor.com>
+ */
 class PhpabVariation
 {
+    /**
+     * @var string Variation name
+     */
     private $name;
+
+    /**
+     * @var string Render view name
+     */
     private $view;
+
+    /**
+     * @var array Render view parameters
+     */
     private $params = [];
+
+    /**
+     * @var string Rendered view
+     */
     private $value;
 
+    /**
+     * PhpabVariation constructor.
+     * @param string $name
+     * @param string $view
+     * @param array  $params
+     */
     public function __construct($name, $view, array $params = [])
     {
         $this->name = $name;
@@ -20,7 +47,7 @@ class PhpabVariation
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName()
     {
@@ -28,7 +55,7 @@ class PhpabVariation
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getView()
     {
@@ -44,13 +71,18 @@ class PhpabVariation
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getValue()
     {
         return $this->value;
     }
 
+    /**
+     * Renders variation view
+     * @param CBaseController $owner Controller or Widget where test from
+     * @return $this
+     */
     public function renderValue(CBaseController $owner)
     {
         $renderFunction = 'renderPartial';

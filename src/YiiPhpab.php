@@ -6,10 +6,16 @@ use CApplicationComponent;
 use CBaseController;
 use Yii;
 
+/**
+ * Class YiiPhpab
+ * Basic extension component to manipulate A/B tests
+ * @package pythagor\yiiphpab
+ * @author Andrei Chugunov <admin@pythagor.com>
+ */
 class YiiPhpab extends CApplicationComponent
 {
     /**
-     * @var PhpabTest[]
+     * @var PhpabTest[] Collection of the Tests
      */
     private $tests = [];
 
@@ -25,11 +31,25 @@ class YiiPhpab extends CApplicationComponent
         Yii::app()->controller->attachEventHandler('onAfterRender', [$this, 'runTest']);
     }
 
+    /**
+     * Sets Factory
+     * @param AbTestFactoryInterface $factory
+     * @return $this
+     */
     public function setFactory(AbTestFactoryInterface $factory)
     {
         $this->abTestFactory = $factory;
+        
+        return $this;
     }
 
+    /**
+     * Instantiates and adds test into tests array
+     * @param                 $name
+     * @param CBaseController $owner
+     * @param bool            $isTrialMode
+     * @return PhpabTest
+     */
     public function addTest($name, CBaseController $owner, $isTrialMode = PhpabTest::MODE_TRIAL)
     {
         $test = new PhpabTest($name, $owner, $isTrialMode);
@@ -38,6 +58,9 @@ class YiiPhpab extends CApplicationComponent
         return $test;
     }
 
+    /**
+     * Executes All the tests from the collection
+     */
     public function runTest()
     {
         $i = 0;

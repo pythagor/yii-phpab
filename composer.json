@@ -7,7 +7,7 @@
         "phpab"
     ],
     "type": "yii-extension",
-    "license": "BSD-3-Clause",
+    "license": "GPL-2.0",
     "support": {
         "issues": "https://github.com/pythagor/yii-phpab/issues",
         "source": "https://github.com/pythagor/yii-phpab"
