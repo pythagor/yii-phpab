@@ -1,0 +1,31 @@
+{
+    "name": "pythagor/yii-phpab",
+    "description": "A-B testing extension for the Yii framework",
+    "keywords": [
+        "yii",
+        "A-B testing",
+        "phpab"
+    ],
+    "type": "yii-extension",
+    "license": "BSD-3-Clause",
+    "support": {
+        "issues": "https://github.com/pythagor/yii-phpab/issues",
+        "source": "https://github.com/pythagor/yii-phpab"
+    },
+    "authors": [
+        {
+            "name": "Andrei Chugunov",
+            "email": "admin@pythagor.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii": "*",
+        "pythagor/php-a-b": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "pythagor\\yiiphpab\\": "src/",
+            "pythagor\\yiiphpab\\tests\\": "tests/"
+        }
+    }
+}
