@@ -10,12 +10,15 @@
     "license": "GPL-2.0",
     "support": {
         "issues": "https://github.com/pythagor/yii-phpab/issues",
-        "source": "https://github.com/pythagor/yii-phpab"
+        "source": "https://github.com/pythagor/yii-phpab",
+        "docs": "https://github.com/pythagor/yii-phpab/blob/master/docs/guide/README.md"
     },
     "authors": [
         {
             "name": "Andrei Chugunov",
-            "email": "admin@pythagor.com"
+            "email": "admin@pythagor.com",
+            "homepage": "http://pythagor.com",
+            "role": "Developer"
         }
     ],
     "require": {
