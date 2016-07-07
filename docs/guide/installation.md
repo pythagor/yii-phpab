@@ -8,11 +8,11 @@ The preferred way to install this extension is through [composer](http://getcomp
 
 Either run
 
-        composer require pythagor/yii-phpab
+    composer require pythagor/yii-phpab
 
 or add
 
-        "pythagor/yii-phpab": "dev-master"
+    "pythagor/yii-phpab": "dev-master"
 
 to the **"require"** section of your composer.json.
 
@@ -21,7 +21,7 @@ Setup
 
 If you have not used composer include composer autoload in the index.php:
 
-        require_once(__DIR__ . '/protected/vendor/autoload.php'); // path to your composer autoload
+    require_once(__DIR__ . '/protected/vendor/autoload.php'); // path to your composer autoload
     
 Add config entry into components section:
 

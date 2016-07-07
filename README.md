@@ -18,10 +18,10 @@ The preferred way to install this extension is through [composer](http://getcomp
 
 Either run
 
-        composer require pythagor/yii-phpab
+    composer require pythagor/yii-phpab
 
 or add
 
-        "pythagor/yii-phpab": "dev-master"
+    "pythagor/yii-phpab": "dev-master"
 
 to the **"require"** section of your composer.json.
