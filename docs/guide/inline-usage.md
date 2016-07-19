@@ -7,10 +7,16 @@ Inside of the Controller Action or Widget create a Test instance:
 
     // controllers/SiteController.php file
     
+    use pythagor\yiiphpab\PhpabTest;
+    
+    ...
+    
     $myInlineABTest = Yii::app()->YiiPhpab->addTest(
-        'inlinetest',                            // Test name
-        $this,                                   // Current Controller instance
-        \pythagor\yiiphpab\PhpabTest::MODE_TRIAL // Test Mode
+        new PhpabTest(
+            'inlinetest',         // Test name
+            $this,                // Current Controller instance
+            PhpabTest::MODE_TRIAL // Test Mode
+        )
     );
 
 Add Test Variation:

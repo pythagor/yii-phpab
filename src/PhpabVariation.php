@@ -14,38 +14,6 @@ use CBaseController;
 class PhpabVariation extends AbstractPhpabVariation
 {
     /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @return string
-     */
-    public function getView()
-    {
-        return $this->view;
-    }
-
-    /**
-     * @return array
-     */
-    public function getParams()
-    {
-        return $this->params;
-    }
-
-    /**
-     * @return string
-     */
-    public function getValue()
-    {
-        return $this->value;
-    }
-
-    /**
      * Renders variation view
      * @param CBaseController $owner Controller or Widget where test from
      * @return $this

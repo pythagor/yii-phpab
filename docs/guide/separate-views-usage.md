@@ -7,10 +7,16 @@ Inside of the Controller Action or Widget create a Test instance:
 
     // controllers/SiteController.php file
     
+    use pythagor\yiiphpab\PhpabTest;
+    
+    ...
+    
     $myABTest = Yii::app()->YiiPhpab->addTest(
-        'firsttest',                             // Test name
-        $this,                                   // Current Controller instance
-        \pythagor\yiiphpab\PhpabTest::MODE_TRIAL // Test Mode
+        new PhpabTest(
+            'firsttest',          // Test name
+            $this,                // Current Controller instance
+            PhpabTest::MODE_TRIAL // Test Mode
+        )
     );
 
 Assign params to the Test Views:

@@ -3,7 +3,6 @@
 namespace pythagor\yiiphpab;
 
 use CApplicationComponent;
-use CBaseController;
 use Yii;
 
 /**
@@ -44,16 +43,13 @@ class YiiPhpab extends CApplicationComponent
     }
 
     /**
-     * Instantiates and adds test into tests array
-     * @param                 $name
-     * @param CBaseController $owner
-     * @param bool            $isTrialMode
-     * @return PhpabTest
+     * Adds the Test given into tests array
+     * @param AbstractPhpabTest $test
+     * @return AbstractPhpabTest
      */
-    public function addTest($name, CBaseController $owner, $isTrialMode = PhpabTest::MODE_TRIAL)
+    public function addTest(AbstractPhpabTest $test)
     {
-        $test = new PhpabTest($name, $owner, $isTrialMode);
-        $this->tests[$name] = $test;
+        $this->tests[$test->getName()] = $test;
 
         return $test;
     }

@@ -46,4 +46,36 @@ abstract class AbstractPhpabVariation
     }
 
     abstract public function renderValue(CBaseController $owner);
+
+    /**
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+    /**
+     * @return string
+     */
+    public function getView()
+    {
+        return $this->view;
+    }
+
+    /**
+     * @return array
+     */
+    public function getParams()
+    {
+        return $this->params;
+    }
+
+    /**
+     * @return string
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
 }

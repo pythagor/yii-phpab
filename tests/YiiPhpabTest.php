@@ -43,14 +43,24 @@ class YiiPhpabTest extends CTestCase
     public function testAddTest()
     {
         static::assertAttributeCount(0, 'tests', $this->extension);
-        $test = $this->extension->addTest(self::TEST_NAME, $this->controller);
+        $test = $this->extension->addTest(
+            new PhpabTest(
+                self::TEST_NAME,
+                $this->controller
+            )
+        );
         static::assertInstanceOf(PhpabTest::class, $test);
         static::assertAttributeCount(1, 'tests', $this->extension);
     }
 
     public function testRunTest()
     {
-        $test = $this->extension->addTest(self::TEST_NAME, $this->controller);
+        $test = $this->extension->addTest(
+            new PhpabTest(
+                self::TEST_NAME,
+                $this->controller
+            )
+        );
         $test->addVariation(
             new PhpabVariation(
                 PhpabTestTest::VARIATION_NAME,
