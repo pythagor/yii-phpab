@@ -3,6 +3,7 @@
 namespace pythagor\yiiphpab\tests;
 
 use CTestCase;
+use pythagor\yiiphpab\PhpabVariation;
 use Yii;
 use pythagor\yiiphpab\YiiPhpab;
 use pythagor\yiiphpab\PhpabTest;
@@ -50,7 +51,12 @@ class YiiPhpabTest extends CTestCase
     public function testRunTest()
     {
         $test = $this->extension->addTest(self::TEST_NAME, $this->controller);
-        $test->addVariation(PhpabTestTest::VARIATION_NAME, PhpabTestTest::TEST_VIEW);
+        $test->addVariation(
+            new PhpabVariation(
+                PhpabTestTest::VARIATION_NAME,
+                PhpabTestTest::TEST_VIEW
+            )
+        );
         $this->extension->runTest();
     }
 }

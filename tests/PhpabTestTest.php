@@ -24,7 +24,12 @@ class PhpabTestTest extends CTestCase
     {
         $test = new PhpabTest(YiiPhpabTest::TEST_NAME, $this->controller);
         static::assertCount(0, $test->getVariations());
-        $test->addVariation(self::VARIATION_NAME, self::TEST_VIEW);
+        $test->addVariation(
+            new PhpabVariation(
+                self::VARIATION_NAME,
+                self::TEST_VIEW
+            )
+        );
         static::assertCount(1, $test->getVariations());
         $variation = $test->getVariations()[0];
         static::assertInstanceOf(PhpabVariation::class, $variation);
@@ -36,7 +41,12 @@ class PhpabTestTest extends CTestCase
     public function testRenderVariations()
     {
         $test = new PhpabTest(YiiPhpabTest::TEST_NAME, $this->controller);
-        $test->addVariation(self::VARIATION_NAME, self::TEST_VIEW);
+        $test->addVariation(
+            new PhpabVariation(
+                self::VARIATION_NAME,
+                self::TEST_VIEW
+            )
+        );
         $text = $test->renderVariations();
         static::assertStringStartsWith('{phpab ' . $test->getName() . '}', $text);
         static::assertStringEndsWith('{/phpab ' . $test->getName() . '}', $text);

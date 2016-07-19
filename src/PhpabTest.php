@@ -57,14 +57,11 @@ class PhpabTest
 
     /**
      * Instantiates Variation, Gets its value and adds Variation into Collection
-     * @param string $name
-     * @param string $view
-     * @param array  $params
+     * @param AbstractPhpabVariation $variation
      * @return $this
      */
-    public function addVariation($name, $view, array $params = [])
+    public function addVariation(AbstractPhpabVariation $variation)
     {
-        $variation = new PhpabVariation($name, $view, $params);
         $variation->renderValue($this->owner);
         $this->variations[] = $variation;
 

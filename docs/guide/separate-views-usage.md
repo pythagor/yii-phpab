@@ -4,7 +4,7 @@ Separate Views Usage
 ### Usable for complex code blocks testing.
 
 Inside of the Controller Action or Widget create a Test instance:
-    
+
     // controllers/SiteController.php file
     
     $myABTest = Yii::app()->YiiPhpab->addTest(
@@ -25,18 +25,28 @@ Add Test Variations:
 
     // controllers/SiteController.php file
     
+    use pythagor\yiiphpab\PhpabVariation;
+    
+    ...
+    
+    // add default variation
     $myABTest->addVariation(
-        'default_view', // Variation Name
-        'view_a',       // Variation Render View
-        $viewParams     // View Parameters
+        new PhpabVariation(
+            'default_view', // Variation Name
+            'view_a',       // Variation Render View
+            $viewParams     // View Parameters
+        )
     );
     
+    // add another variation
     $myABTest->addVariation(
-        'new_view',
-        'view_b',
-        $viewParams
+        new PhpabVariation(
+            'new_view',
+            'view_b',
+            $viewParams
+        )
     );
-        
+
 Create separate view for each of the Variations:
     
     // views/view_a.php file
@@ -77,5 +87,5 @@ Render main view with the test instance passed:
     $this->render('index', [
         'myABTest' => $myABTest,
     ]);
-    
+
 Go to your GA account to view the analytics (if production mode has been enabled).

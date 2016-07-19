@@ -11,41 +11,8 @@ use CBaseController;
  * @package pythagor\yiiphpab
  * @author  Andrei Chugunov <admin@pythagor.com>
  */
-class PhpabVariation
+class PhpabVariation extends AbstractPhpabVariation
 {
-    /**
-     * @var string Variation name
-     */
-    private $name;
-
-    /**
-     * @var string Render view name
-     */
-    private $view;
-
-    /**
-     * @var array Render view parameters
-     */
-    private $params = [];
-
-    /**
-     * @var string Rendered view
-     */
-    private $value;
-
-    /**
-     * PhpabVariation constructor.
-     * @param string $name
-     * @param string $view
-     * @param array  $params
-     */
-    public function __construct($name, $view, array $params = [])
-    {
-        $this->name = $name;
-        $this->view = $view;
-        $this->params = $params;
-    }
-
     /**
      * @return string
      */

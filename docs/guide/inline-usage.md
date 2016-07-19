@@ -4,7 +4,7 @@ Inline Usage
 ### Usable for single lines, phrases or even words testing.
 
 Inside of the Controller Action or Widget create a Test instance:
-    
+
     // controllers/SiteController.php file
     
     $myInlineABTest = Yii::app()->YiiPhpab->addTest(
@@ -17,13 +17,19 @@ Add Test Variation:
 
     // controllers/SiteController.php file
     
-    $myInlineABTest->addVariation(
-        'inline_second_variation', // Variation Name
-        '_inline_second_variation' // Variation View
-    );
-        
-Create separate view for each of the Variations:
+    use pythagor\yiiphpab\PhpabVariation;
     
+    ...
+    
+    $myInlineABTest->addVariation(
+        new PhpabVariation(
+            'inline_second_variation', // Variation Name
+            '_inline_second_variation' // Variation View
+        )
+    );
+
+Create separate view for each of the new Variations:
+
     // views/_inline_second_variation.php file
     
     <b>A/B Test</b>
