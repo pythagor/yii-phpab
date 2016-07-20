@@ -53,6 +53,7 @@ class YiiPhpabTest extends CTestCase
         static::assertAttributeCount(1, 'tests', $this->extension);
     }
 
+    // @todo not finished
     public function testRunTest()
     {
         $test = $this->extension->addTest(

@@ -1,0 +1,2 @@
+Test View C
+<?= $paramName; ?>

@@ -47,8 +47,33 @@ class PhpabTestTest extends CTestCase
                 self::TEST_VIEW
             )
         );
+        $test->addVariation(
+            new PhpabVariation(
+                self::VARIATION_NAME . '_b',
+                self::TEST_VIEW . '_b'
+            )
+        );
+        static::assertCount(2, $test->getVariations());
         $text = $test->renderVariations();
+        static::assertCount(1, $test->getVariations());
         static::assertStringStartsWith('{phpab ' . $test->getName() . '}', $text);
         static::assertStringEndsWith('{/phpab ' . $test->getName() . '}', $text);
+    }
+
+    public function testRenderParams()
+    {
+        $test = new PhpabTest(YiiPhpabTest::TEST_NAME, $this->controller);
+        $params = [
+            'paramName' => 'paramValue'
+        ];
+        $test->addVariation(
+            new PhpabVariation(
+                self::VARIATION_NAME . '_c',
+                self::TEST_VIEW . '_c',
+                $params
+            )
+        );
+        $text = $test->renderVariations();
+        static::assertContains($params['paramName'], $text);
     }
 }
